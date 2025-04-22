@@ -4,10 +4,11 @@ import requests
 app = Flask(__name__)
 
 # === CONFIGURATION ===
-import os
-
-# Get API key from environment variable
-OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')  # Set this in your environment variables
+try:
+    from config import OPENROUTER_API_KEY
+except ImportError:
+    print("Warning: config.py not found. Please create it with your API key.")
+    OPENROUTER_API_KEY = None
 
 # === OpenRouter Chat Function ===
 def call_openrouter(prompt, model, system="You are a certified nutritionist."):
