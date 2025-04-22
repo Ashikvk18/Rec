@@ -1,0 +1,53 @@
+Body Part,Type of Muscle,Workout,Sets,Reps per Set,Age Group,Age
+Chest,Upper Chest,Incline dumbbell press,3-4,8-12,18-30,23
+Chest,Upper Chest,Incline cable crossovers,3-4,10-15,31-50,32
+Chest,Upper Chest,Incline dumbbell flyes,3-4,10-15,31-50,37
+Chest,Lower Chest,Decline dumbbell press,3-4,8-12,18-30,19
+Chest,Lower Chest,Decline cable crossovers,3-4,10-15,31-50,31
+Chest,Lower Chest,Decline dumbbell flyes,3-4,10-15,31-50,48
+Chest,Chest Isolation,Chest flyes,3-4,10-15,31-50,45
+Chest,Chest Isolation,Cable crossovers,3-4,10-15,31-50,41
+Chest,Chest Isolation,Dumbbell flyes,3-4,10-15,31-50,43
+Back,Upper,Pull-ups,3-4,8-12,51+,63
+Back,Upper,Barbell rows,3-4,8-12,51+,56
+Back,Upper,Dumbbell rows,3-4,8-12,31-50,49
+Back,Upper,Seated cable rows,3-4,8-12,31-50,32
+Back,Lower,Bent-over rows,3-4,8-12,51+,65
+Back,Lower,Hyperextensions,3-4,10-15,51+,55
+Back,Lower,Bird dog,3 sets of 10-15 reps per side,10-16,51+,61
+Arms,Biceps,Barbell curls,3-4,8-12,51+,55
+Arms,Biceps,Dumbbell curls,3-4,8-12,31-50,42
+Arms,Biceps,Preacher curls,3-4,8-12,51+,58
+Arms,Biceps,Hammer curls,3-4,8-12,51+,51
+Arms,Biceps,Concentration curls,3-4,8-12,51+,63
+Arms,Triceps,Close-grip bench press,3-4,8-12,18-30,25
+Arms,Triceps,Overhead triceps extensions,3-4,8-12,51+,55
+Arms,Triceps,Triceps pushdowns,3-4,8-12,51+,62
+Arms,Triceps,Skull crushers,3-4,8-12,51+,65
+Arms,Triceps,Triceps dips,3-5,8-13,51+,52
+Legs,Quadriceps,Barbell squats,3-4,8-12,18-30,29
+Legs,Quadriceps,Leg press,3-4,8-12,18-30,18
+Legs,Quadriceps,Leg extensions,3-4,10-15,51+,60
+Legs,Hamstrings,Romanian deadlifts,3-4,8-12,18-30,24
+Legs,Hamstrings,Leg curls,3-4,10-15,51+,63
+Legs,Glutes,Barbell hip thrusts,3-4,8-12,51+,51
+Legs,Glutes,Donkey kicks,3 sets of 10-15 reps per leg,10-15,51+,60
+Legs,Calves,Standing calf raises,3 sets of 15-20 reps,15-20,51+,55
+Legs,Calves,Seated calf raises,3 sets of 15-20 reps,15-21,51+,54
+Shoulders,Anterior,Dumbbell front raises,3-4,8-12,31-50,46
+Shoulders,Anterior,Military press,3-4,8-12,18-30,18
+Shoulders,Lateral,Lateral raises,3-4,10-15,51+,56
+Shoulders,Posterior,Bent-over lateral raises,3-4,10-15,51+,51
+Shoulders,Posterior,Face pulls,3-4,10-15,51+,61
+Abs,Upper,Crunches,3-4,10-15,51+,60
+Abs,Upper,Leg raises,3-4,10-15,51+,53
+Abs,Middle,Bicycle crunches,3-4,10-15,51+,61
+Abs,Middle,Russian twists,3-4,10-15,51+,64
+Abs,Lower,Hanging leg raises,3-4,10-15,51+,63
+Abs,Lower,Plank,30-60 seconds,1,51+,59
+Forearms,Wrist Flexors,Wrist curl,3-4,10-15,51+,54
+Forearms,Wrist Extensors,Wrist extension,3-4,10-15,51+,59
+Forearms,Grip Strength,Plate pinch,3-4,15-20,51+,53
+Forearms,Grip Strength,Towel pull-up,3-4,10-15,51+,54
+Forearms,Grip Strength,Fat grip dumbbell curl,3-4,10-15,31-50,40
+Forearms,Grip Strength,Hammer curl,3-4,10-15,51+,58

@@ -1,0 +1,13 @@
+/* Companion Custom CSS over-rides for [ Campus Recreation ]:  -  */
+
+#topNavUl {
+    float: right
+}
+
+.truman-directory-wrapper img {
+    background: none !important;
+}
+
+h3.department-header {
+    display: none;
+}

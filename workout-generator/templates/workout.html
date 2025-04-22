@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workout Recommendation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('/static/background.png');
+      background-size: contain;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>🏋️‍♀️ Get Your Personalized Workout Plan</h2>
+    <form action="/recommend" method="post">
+      <label for="age">Age:</label>
+      <input type="number" name="age" required>
+
+      <label for="body_part">Body Part:</label>
+      <select id="bodyPartSelect" name="body_part" required onchange="updateMuscleOptions()">
+        <option value="">Select Body Part</option>
+        <option value="Chest">Chest</option>
+        <option value="Back">Back</option>
+        <option value="Arms">Arms</option>
+        <option value="Legs">Legs</option>
+        <option value="Shoulders">Shoulders</option>
+        <option value="Abs">Abs</option>
+        <option value="Forearms">Forearms</option>
+      </select>
+
+      <label for="muscle_type">Target Muscle:</label>
+      <select id="muscleTypeSelect" name="muscle_type">
+        <option value="">All Muscles</option>
+      </select>
+
+      <button type="submit">Generate Workout</button>
+    </form>
+  </div>
+
+  <script>
+    const muscleGroups = {
+      Chest: ["Upper Chest", "Lower Chest", "Chest Isolation"],
+      Back: ["Upper", "Lower"],
+      Arms: ["Biceps", "Triceps"],
+      Legs: ["Quadriceps", "Hamstrings", "Glutes", "Calves"],
+      Shoulders: ["Anterior", "Lateral", "Posterior"],
+      Abs: ["Upper", "Middle", "Lower"],
+      Forearms: ["Wrist Flexors", "Wrist Extensors", "Grip Strength"]
+    };
+
+    function updateMuscleOptions() {
+      const bodyPart = document.getElementById("bodyPartSelect").value;
+      const muscleSelect = document.getElementById("muscleTypeSelect");
+
+      // Clear previous options
+      muscleSelect.innerHTML = "<option value=''>All Muscles</option>";
+
+      // Populate new muscle options if body part is selected
+      if (muscleGroups[bodyPart]) {
+        muscleGroups[bodyPart].forEach(muscle => {
+          const option = document.createElement("option");
+          option.value = muscle;
+          option.textContent = muscle;
+          muscleSelect.appendChild(option);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
