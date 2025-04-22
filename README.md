@@ -34,10 +34,6 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-4. Set up the nutrition generator API key:
-- Go to the nutrition-generator directory
-- Copy `config.sample.py` to `config.py`
-- Edit `config.py` and replace `your-api-key-here` with your OpenRouter API key from https://openrouter.ai/keys
 
 5. Start the servers:
 
