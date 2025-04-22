@@ -1,18 +1,20 @@
 from flask import Flask, render_template, request
 import requests
+from config import OPENROUTER_API_KEY, ORG_ID
 
 app = Flask(__name__)
 
 # === CONFIGURATION ===
-OPENROUTER_API_KEY = "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"  # Replace with your real key from https://openrouter.ai/keys
+# API key and org ID are now imported from config.py
 
 # === OpenRouter Chat Function ===
 def call_openrouter(prompt, model, system="You are a certified nutritionist."):
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:5000",
-        "X-Title": "Diet Generator Debate"
+        "HTTP-Referer": "https://diet-generator.com",
+        "X-Title": "Diet Generator",
+        "OpenAI-Organization": ORG_ID
     }
 
     data = {
@@ -23,17 +25,20 @@ def call_openrouter(prompt, model, system="You are a certified nutritionist."):
         ]
     }
 
-    response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=data)
+    try:
+        response = requests.post("https://openrouter.ai/api/v1/chat/completions", headers=headers, json=data)
+        print("Status Code:", response.status_code)
+        print("Response Headers:", dict(response.headers))
+        print("Response Body:", response.text)
 
-    if response.status_code != 200:
-        print("❌ Error Code:", response.status_code)
-        try:
-            print("❌ Error Details:", response.json())
-        except Exception:
-            print("❌ Raw Response:", response.text)
-        raise Exception("OpenRouter request failed.")
+        if response.status_code != 200:
+            error_detail = response.json() if response.text else "No error details available"
+            raise Exception(f"OpenRouter request failed with status {response.status_code}: {error_detail}")
 
-    return response.json()['choices'][0]['message']['content']
+        return response.json()["choices"][0]["message"]["content"]
+    except Exception as e:
+        print(f"Error making request: {str(e)}")
+        raise
 
 # === ROUTES ===
 @app.route('/')
@@ -61,8 +66,8 @@ def generate_diet():
     profile = "\n".join([f"{k.capitalize()}: {v}" for k, v in user_input.items()])
 
     # === Models ===
-    model_a = "mistralai/mistral-7b-instruct"
-    model_b = "meta-llama/llama-3-8b-instruct"
+    model_a = "anthropic/claude-2"
+    model_b = "anthropic/claude-2"
 
     # === ROUND 1: Initial Nutrition Plan ===
     prompt_a1 = f"""Here is the user's profile:\n{profile}\n
