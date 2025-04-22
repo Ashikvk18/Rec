@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Workout Plan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('/static/background.png');
+      background-size: contain;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .result-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      overflow-y: auto;
+      max-height: 90vh;
+    }
+    h2 {
+      color: #3e1d7b;
+    }
+    a {
+      text-decoration: none;
+      color: #28a745;
+      font-weight: bold;
+    }
+    iframe {
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .workout-block {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-container">
+    <h2>💪 Personalized Workout Plan (Age {{ age }})</h2>
+    <p><strong>Body Part:</strong> {{ body_part }}</p>
+    <p><strong>Target Muscle:</strong> {{ muscle_type }}</p>
+
+    {% if muscle_type != "All" and recommendation != "Full plan" %}
+      <h3>🔥 Prime Recommended Workout:</h3>
+      <p><strong>{{ recommendation }}</strong></p>
+
+      {% if prime_video %}
+        <iframe width="100%" height="315"
+                src="{{ prime_video }}"
+                frameborder="0"
+                allowfullscreen></iframe>
+      {% else %}
+        <p style="color: gray;">No video available for this workout.</p>
+      {% endif %}
+    {% endif %}
+
+    <h3>
+      {% if muscle_type == "All" or recommendation == "Full plan" %}
+        📋 Full {{ body_part }} Workout Plan:
+      {% else %}
+        💡 Alternative Exercises for {{ muscle_type }}:
+      {% endif %}
+    </h3>
+
+    {% for exercise in plan %}
+      <div class="workout-block">
+        <p><strong>• {{ exercise.text }}</strong></p>
+        {% if exercise.video %}
+          <iframe width="100%" height="315" 
+                  src="{{ exercise.video }}" 
+                  frameborder="0" 
+                  allowfullscreen></iframe>
+        {% else %}
+          <p style="color: gray;">No video available.</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+    <p><a href="/">🔁 Try Again</a></p>
+  </div>
+</body>
+</html>
